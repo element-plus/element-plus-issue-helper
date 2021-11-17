@@ -1,7 +1,8 @@
 <script setup lang="ts">
+import { watch } from 'vue'
 import * as texts from '@/texts'
 import { getVersions } from '@/utils'
-import { useForm, buildTools } from '../hooks/forms'
+import { useForm, buildTools, bugTypes } from '../hooks/forms'
 import IssuePreview from './issue-preview.vue'
 
 const userAgent = navigator.userAgent
@@ -13,16 +14,26 @@ const epVersions = getVersions('element-plus')
 const vueVersions = getVersions('vue')
 
 let preview = $ref(false)
+let componentsLimit = $ref(5)
 
 const handlePreview = async () => {
   await form$.validate()
   preview = true
-
-  // const template = templateBugReport(form)
-  // console.log(template)
 }
 
-let { form$, form, rules, reset } = $(useForm())
+let { form$, form, rules, components, reset } = $(useForm())
+
+watch(
+  () => form.components,
+  (components) => {
+    if (components.includes('All') || components.includes('N/A')) {
+      componentsLimit = 1
+      form.components = [components.includes('All') ? 'All' : 'N/A']
+    } else {
+      componentsLimit = 5
+    }
+  }
+)
 </script>
 
 <template>
@@ -52,6 +63,17 @@ let { form$, form, rules, reset } = $(useForm())
 
         <el-form-item label="Issue title" prop="title" required>
           <el-input v-model="form.title" />
+        </el-form-item>
+
+        <el-form-item label="Bug Type">
+          <el-select v-model="form.bugType">
+            <el-option
+              v-for="bugType in bugTypes"
+              :key="bugType"
+              :value="bugType"
+              :label="bugType"
+            />
+          </el-select>
         </el-form-item>
 
         <h2 class="sub-title">Enviroment</h2>
@@ -126,11 +148,25 @@ let { form$, form, rules, reset } = $(useForm())
 
         <h2 class="sub-title">Reproduction</h2>
 
-        <el-form-item label="Which component?" prop="componentName" required>
-          <el-input
-            v-model="form.componentName"
-            placeholder="kebab-base, use commas to separate. e.g. el-button, el-menu-item"
-          />
+        <el-form-item
+          label="Which components are affected?"
+          prop="components"
+          required
+        >
+          <el-select
+            v-model="form.components"
+            multiple
+            filterable
+            :multiple-limit="componentsLimit"
+            style="width: 100%"
+          >
+            <el-option
+              v-for="component in ['All', 'N/A', ...components]"
+              :key="component"
+              :label="component"
+              :value="component"
+            />
+          </el-select>
         </el-form-item>
 
         <el-form-item

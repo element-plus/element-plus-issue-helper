@@ -31,16 +31,12 @@ export const getFiles = (pkg: MaybeRef<string>, version: MaybeRef<string>) => {
   watch(
     () => [unref(pkg), unref(version)],
     () => {
-      if (unref(pkg) && unref(version)) execute()
+      if (unref(pkg) && unref(version)) {
+        execute()
+      }
     },
     { immediate: true }
   )
 
   return $$(files)
 }
-
-export const resolveCommaString = (text: string) =>
-  text
-    .split(',')
-    .map((str) => str.trim())
-    .filter((str) => !!str)
