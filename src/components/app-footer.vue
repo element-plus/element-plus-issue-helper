@@ -13,6 +13,12 @@ const version = process.env.VERSION
       alt="Logo"
       class="h-6 mr-1"
     />
-    Element Plus Issue Helper v{{ version }}
+    <a
+      class="no-underline"
+      style="color: var(--el-color-primary)"
+      href="https://github.com/element-plus/element-plus-issue-helper"
+    >
+      Element Plus Issue Helper v{{ version }}
+    </a>
   </p>
 </template>

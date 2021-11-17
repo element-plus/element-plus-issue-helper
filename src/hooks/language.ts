@@ -4,7 +4,7 @@ import en from 'element-plus/es/locale/lang/en'
 
 export const languages = [
   { id: 'en-US', text: 'English', locale: en },
-  { id: 'zh-CN', text: '中文', locale: zhCn },
+  { id: 'zh-CN', text: '🚧 WIP 中文', locale: zhCn },
 ]
 
 const params = useUrlSearchParams('hash-params')

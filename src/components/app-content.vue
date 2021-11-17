@@ -1,38 +1,28 @@
 <script setup lang="ts">
-import { reactive } from 'vue'
-import { useFetch } from '@vueuse/core'
 import * as texts from '@/texts'
-import type { Ref } from 'vue'
-
-const getVersions = (pkg: string) => {
-  return useFetch(`https://data.jsdelivr.com/v1/package/npm/${pkg}`, {
-    initialData: [],
-    afterFetch: (ctx) => ((ctx.data = ctx.data.versions), ctx),
-  }).json<string[]>().data as Ref<string[]>
-}
-
-const epVersions = getVersions('element-plus')
-const vueVersions = getVersions('vue')
-
-const form = reactive({
-  type: 'bug-report',
-  title: '',
-  epVersion: '',
-  vueVersion: '',
-  browser: '',
-  buildTool: '',
-  reproductionLink: '',
-  reproduce: '',
-  expected: '',
-  actual: '',
-  additional: '',
-})
+import { getVersions } from '@/utils'
+import { useForm, buildTools } from '../hooks/forms'
+import IssuePreview from './issue-preview.vue'
 
 const userAgent = navigator.userAgent
 const exampleMarkdwonWrapper = `
 \`\`\`vue
 // code here
 \`\`\``.trim()
+const epVersions = getVersions('element-plus')
+const vueVersions = getVersions('vue')
+
+let preview = $ref(false)
+
+const handlePreview = async () => {
+  await form$.validate()
+  preview = true
+
+  // const template = templateBugReport(form)
+  // console.log(template)
+}
+
+let { form$, form, rules, reset } = $(useForm())
 </script>
 
 <template>
@@ -44,8 +34,14 @@ const exampleMarkdwonWrapper = `
         <a class="text-base" tabindex="-1">Why are we so strict about this?</a>
       </div>
 
-      <el-form size="small" label-position="top">
-        <el-form-item label="This is a">
+      <el-form
+        ref="form$"
+        :model="form"
+        :rules="rules"
+        size="small"
+        label-position="top"
+      >
+        <el-form-item label="This is a" prop="type">
           <el-radio-group v-model="form.type">
             <el-radio-button label="bug-report">Bug Report</el-radio-button>
             <el-radio-button label="feature-request">
@@ -54,7 +50,7 @@ const exampleMarkdwonWrapper = `
           </el-radio-group>
         </el-form-item>
 
-        <el-form-item label="Issue title" required>
+        <el-form-item label="Issue title" prop="title" required>
           <el-input v-model="form.title" />
         </el-form-item>
 
@@ -62,13 +58,12 @@ const exampleMarkdwonWrapper = `
 
         <el-row :gutter="16">
           <el-col :span="12">
-            <el-form-item label="Element Plus Version" required>
-              <el-select
-                v-model="form.epVersion"
-                allow-create
-                filterable
-                style="width: 100%"
-              >
+            <el-form-item
+              label="Element Plus Version"
+              prop="epVersion"
+              required
+            >
+              <el-select v-model="form.epVersion" clearable style="width: 100%">
                 <el-option
                   v-for="version in epVersions"
                   :key="version"
@@ -84,11 +79,10 @@ const exampleMarkdwonWrapper = `
             </el-form-item>
           </el-col>
           <el-col :span="12">
-            <el-form-item label="Vue Version" required>
+            <el-form-item label="Vue Version" prop="vueVersion" required>
               <el-select
                 v-model="form.vueVersion"
-                allow-create
-                filterable
+                clearable
                 style="width: 100%"
               >
                 <el-option
@@ -107,10 +101,10 @@ const exampleMarkdwonWrapper = `
           </el-col>
 
           <el-col :span="12">
-            <el-form-item label="Browser / OS" required>
+            <el-form-item label="Browser / OS" prop="browser" required>
               <el-input
                 v-model="form.browser"
-                placeholder="e.g: Chrome 96.0.4664.45 / macOS 12.0.1"
+                placeholder="e.g. Chrome 96.0.4664.45 / macOS 12.0.1"
               />
 
               <p class="text-xs text-gray-500 font-mono">
@@ -120,14 +114,11 @@ const exampleMarkdwonWrapper = `
           </el-col>
 
           <el-col :span="12">
-            <el-form-item label="Build Tool" required>
+            <el-form-item label="Build Tool" prop="buildTool" required>
               <el-radio-group v-model="form.buildTool">
-                <el-radio label="vite">Vite</el-radio>
-                <el-radio label="webpack">Webpack</el-radio>
-                <el-radio label="vue-cli">Vue CLI</el-radio>
-                <el-radio label="rollup">Rollup</el-radio>
-                <el-radio label="cdn">CDN</el-radio>
-                <el-radio label="other">Other</el-radio>
+                <el-radio v-for="name in buildTools" :key="name" :label="name">
+                  {{ name }}
+                </el-radio>
               </el-radio-group>
             </el-form-item>
           </el-col>
@@ -135,7 +126,18 @@ const exampleMarkdwonWrapper = `
 
         <h2 class="sub-title">Reproduction</h2>
 
-        <el-form-item label="Link to minimal reproduction" required>
+        <el-form-item label="Which component?" prop="componentName" required>
+          <el-input
+            v-model="form.componentName"
+            placeholder="kebab-base, use commas to separate. e.g. el-button, el-menu-item"
+          />
+        </el-form-item>
+
+        <el-form-item
+          label="Link to minimal reproduction"
+          prop="reproductionLink"
+          required
+        >
           <el-input v-model="form.reproductionLink" />
           <div v-html="texts.reproductionLink" />
         </el-form-item>
@@ -151,7 +153,7 @@ const exampleMarkdwonWrapper = `
           />
         </div>
 
-        <el-form-item label="Steps to reproduce" required>
+        <el-form-item label="Steps to reproduce" prop="reproduce" required>
           <el-input
             v-model="form.reproduce"
             class="font-mono"
@@ -162,7 +164,7 @@ const exampleMarkdwonWrapper = `
 
         <el-row :gutter="16">
           <el-col :span="12">
-            <el-form-item label="What is expected?" required>
+            <el-form-item label="What is expected?" prop="expected" required>
               <el-input
                 v-model="form.expected"
                 class="font-mono"
@@ -173,7 +175,11 @@ const exampleMarkdwonWrapper = `
           </el-col>
 
           <el-col :span="12">
-            <el-form-item label="What is actually happening?" required>
+            <el-form-item
+              label="What is actually happening?"
+              prop="actual"
+              required
+            >
               <el-input
                 v-model="form.actual"
                 class="font-mono"
@@ -184,7 +190,10 @@ const exampleMarkdwonWrapper = `
           </el-col>
         </el-row>
 
-        <el-form-item label="Any additional comments? (optional)">
+        <el-form-item
+          label="Any additional comments? (optional)"
+          prop="additional"
+        >
           <el-input
             v-model="form.additional"
             class="font-mono"
@@ -193,12 +202,26 @@ const exampleMarkdwonWrapper = `
           />
         </el-form-item>
 
-        <el-form-item class="text-center" size="large">
-          <el-button type="primary">Preview</el-button>
+        <el-form-item>
+          <div class="flex">
+            <el-button
+              class="flex-grow-0"
+              type="primary"
+              size="large"
+              @click="handlePreview"
+            >
+              Preview
+            </el-button>
+            <div class="flex-1 text-right">
+              <el-button class="" size="mini" @click="reset">Reset</el-button>
+            </div>
+          </div>
         </el-form-item>
       </el-form>
     </el-col>
   </el-row>
+
+  <issue-preview v-model="preview" :form="form" />
 </template>
 
 <style lang="less" scoped>

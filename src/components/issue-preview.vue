@@ -1,0 +1,42 @@
+<script lang="ts" setup>
+import { marked } from 'marked'
+import { templateBugReport } from '@/hooks/forms'
+import type { Form } from '@/hooks/forms'
+
+const props = defineProps<{
+  modelValue: boolean
+  form: Form
+}>()
+defineEmits<{
+  (event: 'update:modelValue', value: boolean): void
+}>()
+
+let template = $computed(() => {
+  // if (props.form.type === 'bug-report')
+  return templateBugReport(props.form)
+})
+let content = $computed(() =>
+  marked(`# ${template?.title}\n\n${template.content}`)
+)
+
+const create = () => {
+  const content = encodeURIComponent(template.content)
+  window.open(
+    `https://github.com/element-plus/element-plus/issues/new?title=${props.form.title}&body=${content}`
+  )
+}
+</script>
+
+<template>
+  <el-dialog
+    title="Issue Preview"
+    :model-value="modelValue"
+    @update:model-value="$emit('update:modelValue', $event)"
+  >
+    <div class="markdown-body" v-html="content" />
+
+    <template #footer>
+      <el-button type="primary" @click="create">Create</el-button>
+    </template>
+  </el-dialog>
+</template>

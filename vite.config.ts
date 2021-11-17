@@ -7,7 +7,8 @@ import { ElementPlusResolver } from 'unplugin-vue-components/resolvers'
 import Unocss from 'unocss/vite'
 import presetUno from '@unocss/preset-uno'
 import presetIcons from '@unocss/preset-icons'
-import markdown, { Mode } from 'vite-plugin-markdown'
+import md, { Mode } from 'vite-plugin-markdown'
+import { markdownIt } from './build/markdown'
 import pkg from './package.json'
 
 const pathSrc = path.resolve(__dirname, 'src')
@@ -32,6 +33,9 @@ export default defineConfig({
     Unocss({
       presets: [presetUno(), presetIcons()],
     }),
-    markdown({ mode: [Mode.HTML, Mode.VUE] }),
+    md({
+      mode: [Mode.HTML, Mode.VUE],
+      markdownIt,
+    }),
   ],
 })
