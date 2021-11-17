@@ -3,6 +3,7 @@ import AppHeader from '@/components/app-header.vue'
 import AppContent from '@/components/app-content.vue'
 
 import { useLanguage } from './hooks/language'
+import AppFooter from './components/app-footer.vue'
 
 const { language } = useLanguage()
 </script>
@@ -12,6 +13,7 @@ const { language } = useLanguage()
     <div class="antialiased">
       <app-header />
       <app-content />
+      <app-footer />
     </div>
   </el-config-provider>
 </template>

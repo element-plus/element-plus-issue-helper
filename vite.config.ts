@@ -8,6 +8,7 @@ import Unocss from 'unocss/vite'
 import presetUno from '@unocss/preset-uno'
 import presetIcons from '@unocss/preset-icons'
 import markdown, { Mode } from 'vite-plugin-markdown'
+import pkg from './package.json'
 
 const pathSrc = path.resolve(__dirname, 'src')
 
@@ -16,6 +17,9 @@ export default defineConfig({
     alias: {
       '@': pathSrc,
     },
+  },
+  define: {
+    'process.env.VERSION': JSON.stringify(pkg.version),
   },
   plugins: [
     vue({

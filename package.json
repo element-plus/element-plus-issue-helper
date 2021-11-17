@@ -1,6 +1,14 @@
 {
   "name": "element-plus-issue-helper",
   "version": "0.0.1",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/element-plus/element-plus-issue-helper.git"
+  },
+  "author": "Kevin <sxzz@sxzz.moe>",
+  "bugs": {
+    "url": "https://github.com/element-plus/element-plus-issue-helper/issues"
+  },
   "scripts": {
     "dev": "vite",
     "build": "vue-tsc --noEmit && vite build",
