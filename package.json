@@ -1,6 +1,6 @@
 {
   "name": "element-plus-issue-helper",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/element-plus/element-plus-issue-helper.git"
@@ -12,7 +12,8 @@
   "scripts": {
     "dev": "vite",
     "build": "vue-tsc --noEmit && vite build",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "release": "standard-version"
   },
   "dependencies": {
     "element-plus": "^1.2.0-beta.3",
@@ -35,6 +36,7 @@
     "github-markdown-css": "^5.0.0",
     "less": "^4.1.2",
     "markdown-it": "^12.2.0",
+    "standard-version": "^9.3.2",
     "typescript": "^4.4.4",
     "unocss": "^0.9.3",
     "unplugin-vue-components": "^0.17.2",
