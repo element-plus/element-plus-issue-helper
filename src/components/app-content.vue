@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { watch } from 'vue'
 import * as texts from '@/texts'
-import { getVersions } from '@/utils'
+import { getSupportedEpVersion, getSupportedVueVersion } from '@/utils'
 import { useForm, buildTools, bugTypes } from '../hooks/forms'
 import IssuePreview from './issue-preview.vue'
 
@@ -10,8 +10,9 @@ const exampleMarkdwonWrapper = `
 \`\`\`vue
 // code here
 \`\`\``.trim()
-const epVersions = getVersions('element-plus')
-const vueVersions = getVersions('vue')
+
+const epVersions = getSupportedEpVersion()
+const vueVersions = getSupportedVueVersion()
 
 let preview = $ref(false)
 let componentsLimit = $ref(5)
@@ -21,7 +22,7 @@ const handlePreview = async () => {
   preview = true
 }
 
-let { form$, form, rules, components, reset } = $(useForm())
+let { form$, form, rules, components, reset } = $(useForm(epVersions))
 
 watch(
   () => form.components,

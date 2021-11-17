@@ -1,5 +1,6 @@
-import { unref, watch, shallowRef } from 'vue'
+import { unref, watch, shallowRef, computed } from 'vue'
 import { useFetch } from '@vueuse/core'
+import { compare } from 'compare-versions'
 import type { Ref } from 'vue'
 import type { MaybeRef } from '@vueuse/core'
 
@@ -8,6 +9,20 @@ export const getVersions = (pkg: string) =>
     initialData: [],
     afterFetch: (ctx) => ((ctx.data = ctx.data.versions), ctx),
   }).json<string[]>().data as Ref<string[]>
+
+export const getSupportedVueVersion = () => {
+  let versions = $(getVersions('vue'))
+  return computed(() =>
+    versions.filter((version) => compare(version, '3.2.0', '>='))
+  )
+}
+
+export const getSupportedEpVersion = () => {
+  let versions = $(getVersions('element-plus'))
+  return computed(() =>
+    versions.filter((version) => compare(version, '1.1.0-beta.1', '>='))
+  )
+}
 
 export const getFiles = (pkg: MaybeRef<string>, version: MaybeRef<string>) => {
   type Files = {

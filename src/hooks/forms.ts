@@ -1,11 +1,12 @@
+import { computed } from 'vue'
 import { useLocalStorage } from '@vueuse/core'
-import { toRef } from 'vue'
 import { getFiles } from '@/utils'
 import {
   checkReproductionLink,
   removeReproductionPrefix,
   resolveReproductionLink,
 } from '@/utils/reproduction'
+import type { Ref } from 'vue'
 import type { Rule } from 'async-validator'
 import type { ElForm } from 'element-plus'
 
@@ -43,7 +44,7 @@ export interface Form {
   additional: string
 }
 
-export const useForm = () => {
+export const useForm = (epVersions: Ref<string[]>) => {
   let form$ = $ref<InstanceType<typeof ElForm>>()
 
   const defaultForm: Form = {
@@ -74,7 +75,12 @@ export const useForm = () => {
     ],
   }
 
-  let files = $(getFiles('element-plus', toRef(form, 'epVersion')))
+  let files = $(
+    getFiles(
+      'element-plus',
+      computed(() => form.epVersion || epVersions.value[0])
+    )
+  )
   let components = $computed(() => [
     ...new Set(
       files
