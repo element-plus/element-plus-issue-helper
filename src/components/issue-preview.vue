@@ -16,7 +16,10 @@ let template = $computed(() => {
   return templateBugReport(props.form)
 })
 let content = $computed(() =>
-  marked(`# ${template?.title}\n\n${template.content}`)
+  marked(`# ${template?.title}\n\n${template.content}`, {
+    gfm: true,
+    breaks: true,
+  })
 )
 
 const create = () => {
