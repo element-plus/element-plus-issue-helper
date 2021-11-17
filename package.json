@@ -1,0 +1,34 @@
+{
+  "name": "element-plus-issue-helper",
+  "version": "0.0.0",
+  "scripts": {
+    "dev": "vite",
+    "build": "vue-tsc --noEmit && vite build",
+    "preview": "vite preview"
+  },
+  "dependencies": {
+    "element-plus": "^1.2.0-beta.3",
+    "vue": "^3.2.22"
+  },
+  "devDependencies": {
+    "@iconify-json/mdi": "^1.0.10",
+    "@sxzz/eslint-config-prettier": "^1.6.1",
+    "@sxzz/eslint-config-vue": "^1.6.3",
+    "@types/marked": "^4.0.0",
+    "@types/node": "*",
+    "@unocss/preset-icons": "^0.9.3",
+    "@unocss/preset-uno": "^0.9.3",
+    "@vitejs/plugin-vue": "^1.9.4",
+    "@vueuse/core": "^6.9.1",
+    "eslint": "^8.2.0",
+    "eslint-define-config": "^1.1.3",
+    "less": "^4.1.2",
+    "typescript": "^4.4.4",
+    "unocss": "^0.9.3",
+    "unplugin-vue-components": "^0.17.2",
+    "vite": "^2.6.14",
+    "vite-plugin-inspect": "^0.3.10",
+    "vite-plugin-markdown": "^2.0.2",
+    "vue-tsc": "^0.29.5"
+  }
+}
