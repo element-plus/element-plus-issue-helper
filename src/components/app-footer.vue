@@ -1,5 +1,5 @@
 <script lang="ts" setup>
-const version = process.env.VERSION
+const version = import.meta.env.VERSION
 </script>
 
 <template>
