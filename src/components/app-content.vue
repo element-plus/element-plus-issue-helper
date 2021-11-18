@@ -68,8 +68,8 @@ watch(
           <el-input v-model="form.title" />
         </el-form-item>
 
-        <el-form-item label="Bug Type">
-          <el-select v-model="form.bugType">
+        <el-form-item label="Bug Type" required>
+          <el-select v-model="form.bugType" clearable>
             <el-option
               v-for="bugType in bugTypes"
               :key="bugType"

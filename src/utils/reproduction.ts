@@ -3,6 +3,9 @@ export const reproductions = [
   { name: 'JSFiddle', domain: 'jsfiddle.net' },
   { name: 'CodePen', domain: 'codepen.io' },
   { name: 'CodeSandbox', domain: 'codesandbox.io' },
+  { name: 'Docs', domain: 'element-plus.org' },
+  { name: 'Docs CN', domain: 'element-plus.gitee.io' },
+  { name: 'Github Repo', domain: 'github.com' },
 ] as const
 
 export const resolveReproductionLink = (text: string) => {

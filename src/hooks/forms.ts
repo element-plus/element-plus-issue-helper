@@ -25,6 +25,7 @@ export const bugTypes = [
   'Style',
   'i18n',
   'Build',
+  'Docs',
   'Other',
 ] as const
 
@@ -104,7 +105,7 @@ export const useForm = (epVersions: Ref<string[]>) => {
 export const templateBugReport = (form: Form) => {
   const titleTags = ['Bug Report']
   if (form.bugType !== 'Other') titleTags.push(form.bugType)
-  if (form.components.length <= 2)
+  if (form.components.length <= 2 && !form.components.includes('N/A'))
     titleTags.push(
       form.components
         .map((component) => component.replace(/^el-/, ''))

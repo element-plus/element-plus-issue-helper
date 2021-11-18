@@ -16,7 +16,7 @@ let template = $computed(() => {
   return templateBugReport(props.form)
 })
 let content = $computed(() =>
-  marked(`# ${template?.title}\n\n${template.content}`, {
+  marked(`# ${template.title}\n\n${template.content}`, {
     gfm: true,
     breaks: true,
   })
@@ -25,7 +25,7 @@ let content = $computed(() =>
 const create = () => {
   const content = encodeURIComponent(template.content)
   window.open(
-    `https://github.com/element-plus/element-plus/issues/new?title=${props.form.title}&body=${content}`
+    `https://github.com/element-plus/element-plus/issues/new?title=${template.title}&body=${content}`
   )
 }
 </script>
