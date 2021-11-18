@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.0.7](https://github.com/element-plus/element-plus-issue-helper/compare/v0.0.6...v0.0.7) (2021-11-18)
+
+
+### Features
+
+* support docs and github repo ([073824c](https://github.com/element-plus/element-plus-issue-helper/commit/073824c271392241ff7d0e10d2fe5de15137aecc))
+
 ### [0.0.6](https://github.com/element-plus/element-plus-issue-helper/compare/v0.0.5...v0.0.6) (2021-11-18)
 
 
