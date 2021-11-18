@@ -28,8 +28,10 @@ watch(
   () => form.components,
   (components) => {
     if (components.includes('All') || components.includes('N/A')) {
+      if (components.length > 1) {
+        form.components = [components.includes('All') ? 'All' : 'N/A']
+      }
       componentsLimit = 1
-      form.components = [components.includes('All') ? 'All' : 'N/A']
     } else {
       componentsLimit = 5
     }
