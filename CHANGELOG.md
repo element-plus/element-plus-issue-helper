@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.0.8](https://github.com/element-plus/element-plus-issue-helper/compare/v0.0.7...v0.0.8) (2021-11-27)
+
+
+### Bug Fixes
+
+* vue ref sugar types ([aba10ef](https://github.com/element-plus/element-plus-issue-helper/commit/aba10efd507186bf2401a281b707e111f856afc5))
+
 ### [0.0.7](https://github.com/element-plus/element-plus-issue-helper/compare/v0.0.6...v0.0.7) (2021-11-18)
 
 
