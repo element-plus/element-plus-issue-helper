@@ -1,5 +1,4 @@
 <script setup lang="ts">
-import { watch } from 'vue'
 import * as texts from '@/texts'
 import { getSupportedEpVersion, getSupportedVueVersion } from '@/utils'
 import { useForm, buildTools, bugTypes } from '../hooks/forms'

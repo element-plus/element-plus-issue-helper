@@ -22,6 +22,7 @@ specifiers:
   standard-version: ^9.3.2
   typescript: ~4.5.3
   unocss: ^0.16.0
+  unplugin-auto-import: ^0.5.3
   unplugin-vue-components: ^0.17.8
   vite: ^2.7.1
   vite-plugin-inspect: ^0.3.11
@@ -54,6 +55,7 @@ devDependencies:
   standard-version: 9.3.2
   typescript: 4.5.3
   unocss: 0.16.0
+  unplugin-auto-import: 0.5.3_@vueuse+core@7.2.2+vite@2.7.1
   unplugin-vue-components: 0.17.8_vite@2.7.1+vue@3.2.24
   vite: 2.7.1_less@4.1.2
   vite-plugin-inspect: 0.3.11_vite@2.7.1
@@ -4042,6 +4044,28 @@ packages:
       '@unocss/preset-uno': 0.16.0
       '@unocss/reset': 0.16.0
       '@unocss/vite': 0.16.0
+    dev: true
+
+  /unplugin-auto-import/0.5.3_@vueuse+core@7.2.2+vite@2.7.1:
+    resolution: {integrity: sha512-jXs0rnKTS+/TyXOild6RkVp73yz1DeLXVJWR6VRn+oageEsvHgW6zofvc2BmpAm/pTSANxZ48kLi12wOa/iwdw==}
+    engines: {node: '>=14'}
+    peerDependencies:
+      '@vueuse/core': '*'
+    peerDependenciesMeta:
+      '@vueuse/core':
+        optional: true
+    dependencies:
+      '@antfu/utils': 0.3.0
+      '@rollup/pluginutils': 4.1.1
+      '@vueuse/core': 7.2.2_vue@3.2.24
+      local-pkg: 0.4.0
+      magic-string: 0.25.7
+      resolve: 1.20.0
+      unplugin: 0.2.21_vite@2.7.1
+    transitivePeerDependencies:
+      - rollup
+      - vite
+      - webpack
     dev: true
 
   /unplugin-vue-components/0.17.8_vite@2.7.1+vue@3.2.24:

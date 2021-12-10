@@ -4,6 +4,7 @@ import vue from '@vitejs/plugin-vue'
 import inspect from 'vite-plugin-inspect'
 import Components from 'unplugin-vue-components/vite'
 import { ElementPlusResolver } from 'unplugin-vue-components/resolvers'
+import AutoImport from 'unplugin-auto-import/vite'
 import Unocss from 'unocss/vite'
 import presetUno from '@unocss/preset-uno'
 import presetIcons from '@unocss/preset-icons'
@@ -16,7 +17,7 @@ const pathSrc = path.resolve(__dirname, 'src')
 export default defineConfig({
   resolve: {
     alias: {
-      '@': pathSrc,
+      '@/': `${pathSrc}/`,
     },
   },
   define: {
@@ -25,6 +26,14 @@ export default defineConfig({
   plugins: [
     vue({
       refTransform: `${pathSrc}/**`,
+      script: {
+        propsDestructureTransform: true,
+      },
+    }),
+    AutoImport({
+      imports: ['vue', '@vueuse/core'],
+      resolvers: [ElementPlusResolver()],
+      dts: path.resolve(pathSrc, 'auto-imports.d.ts'),
     }),
     Components({
       resolvers: [ElementPlusResolver()],
