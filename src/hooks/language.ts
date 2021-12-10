@@ -1,33 +1,41 @@
-import { useUrlSearchParams } from '@vueuse/core'
 import zhCn from 'element-plus/es/locale/lang/zh-cn'
 import en from 'element-plus/es/locale/lang/en'
 
-export const languages = [
-  { id: 'en-US', text: 'English', locale: en },
-  { id: 'zh-CN', text: '🚧 WIP 中文', locale: zhCn },
-]
-
-const params = useUrlSearchParams('hash-params')
+let storedLang = $(useLocalStorage('lang', navigator.language))
 
 export const useLanguage = () => {
-  const getLanguage = (id: string) =>
-    languages.find((language) => language.id === id)!
+  const { locale, availableLocales, fallbackLocale, getLocaleMessage } =
+    useI18n()
 
-  // eslint-disable-next-line prefer-const
-  let lang = $computed({
-    get: () => {
-      let id = `${params.lang || window.navigator.language}`
-      if (!getLanguage(id)) id = 'en-US'
-      return id
+  const lang = computed({
+    get: () =>
+      availableLocales.includes(locale.value)
+        ? locale.value
+        : (fallbackLocale.value as string),
+    set: (lang) => {
+      const newLang = availableLocales.includes(lang)
+        ? lang
+        : navigator.language
+      locale.value = newLang
+      storedLang = newLang
     },
-    set: (val) => (params.lang = val),
   })
-  // eslint-disable-next-line prefer-const
-  let language = $computed(() => getLanguage(lang))
 
-  return $$({
+  const getLangages = () =>
+    availableLocales.map((locale) => ({
+      id: locale,
+      name: (getLocaleMessage(locale).name as any).source as string,
+    }))
+
+  const epLocale = computed(() => (lang.value === 'en' ? en : zhCn))
+
+  if (lang.value !== storedLang) {
+    lang.value = storedLang
+  }
+
+  return {
     lang,
-    language,
-    getLanguage,
-  })
+    epLocale,
+    getLangages,
+  }
 }

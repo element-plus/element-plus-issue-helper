@@ -1,0 +1,28 @@
+name: English
+beforeYouStart: Before You Start...
+whyStrict: Why are we so strict about this?
+issueTitle: Issue title
+issueType: This is a
+issueTypeBugReport: Bug Report
+issueTypeFeatureRequest: Feature Request
+issuePreivew: Issue Preview
+bug:
+  type: Bug Type
+  enviroment: Enviroment
+  elementPlusVersion: Element Plus Version
+  elementPlusVersionHint: Check if the issue is reproducible with the latest version of Element Plus.
+  vueVersion: Vue Version
+  vueVersionHint: Check if the issue is reproducible with the latest stable version of Vue.
+  browserOS: Browser / OS
+  buildTool: Build Tool
+  reproduction: Reproduction
+  affectedComponents: Affected components
+  minimalReproduction: Link to minimal reproduction
+  stepsToReproduce: Steps to reproduce
+  expected: What is expected?
+  actuallyHappening: What is actually happening?
+  additionalComments: Any additional comments? (optional)
+  screenshot: If you need to insert a screenshot, please paste it here.
+resetForm: Reset From
+preview: Preview
+create: Create

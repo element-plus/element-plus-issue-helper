@@ -11,6 +11,8 @@ defineEmits<{
   (event: 'update:modelValue', value: boolean): void
 }>()
 
+const { t } = useI18n()
+
 let template = $computed(() => {
   // if (props.form.type === 'bug-report')
   return templateBugReport(props.form)
@@ -32,14 +34,14 @@ const create = () => {
 
 <template>
   <el-dialog
-    title="Issue Preview"
+    :title="t('issuePreivew')"
     :model-value="modelValue"
     @update:model-value="$emit('update:modelValue', $event)"
   >
-    <div class="markdown-body" v-html="content" />
+    <div class="markdown-body text-sm" v-html="content" />
 
     <template #footer>
-      <el-button type="primary" @click="create">Create</el-button>
+      <el-button type="primary" @click="create">{{ t('create') }}</el-button>
     </template>
   </el-dialog>
 </template>

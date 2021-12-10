@@ -1,7 +1,8 @@
 <script setup lang="ts">
-import { languages, useLanguage } from '@/hooks/language'
+import { useLanguage } from '@/hooks/language'
 
-const { lang } = useLanguage()
+const { getLangages, lang } = useLanguage()
+const languages = getLangages()
 </script>
 
 <template>
@@ -19,7 +20,7 @@ const { lang } = useLanguage()
         :class="{ 'nav-menu-item': true, active: language.id === lang }"
         @click="lang = language.id"
       >
-        {{ language.text }}
+        {{ language.name }}
       </div>
       <a
         class="nav-menu-item"

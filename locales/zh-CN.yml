@@ -1,0 +1,28 @@
+name: 中文
+beforeYouStart: 在你开始之前……
+whyStrict: 为什么有这么多限制？
+issueTitle: issue 标题
+issueType: 这是一个
+issueTypeBugReport: Bug 报告
+issueTypeFeatureRequest: 功能请求
+issuePreivew: issue 预览
+bug:
+  type: Bug 类型
+  enviroment: 环境信息
+  elementPlusVersion: Element Plus 版本
+  elementPlusVersionHint: 请检查该问题是否可以使用最新的 Element Plus 版本重现。
+  vueVersion: Vue 版本
+  vueVersionHint: 请检查该问题是否可以使用最新的 Vue 稳定版本重现。
+  browserOS: 浏览器 / 操作系统
+  buildTool: 构建工具
+  reproduction: 复现环境
+  affectedComponents: 受影响的组件
+  minimalReproduction: 最小复现环境的链接
+  stepsToReproduce: 复现步骤
+  expected: 期望的行为
+  actuallyHappening: 实际的行为
+  additionalComments: 额外留言（可选）
+  screenshot: 如果您需要插入截图，请在这粘贴。
+resetForm: 清空表单
+preview: 预览
+create: 创建

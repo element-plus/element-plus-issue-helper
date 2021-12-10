@@ -7,11 +7,11 @@ import AppFooter from './components/app-footer.vue'
 
 import 'github-markdown-css/github-markdown-light.css'
 
-const { language } = useLanguage()
+const { epLocale } = useLanguage()
 </script>
 
 <template>
-  <el-config-provider :locale="language.locale">
+  <el-config-provider :locale="epLocale">
     <div class="antialiased">
       <app-header />
       <app-content />

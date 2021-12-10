@@ -1,15 +1,31 @@
 <script setup lang="ts">
-import * as texts from '@/texts'
+import { camelize, capitalize } from '@vue/shared'
+import { useLanguage } from '@/hooks/language'
 import { getSupportedEpVersion, getSupportedVueVersion } from '@/utils'
 import { useForm, buildTools, bugTypes } from '../hooks/forms'
 import IssuePreview from './issue-preview.vue'
+import type { Component } from 'vue'
+
+const { t } = useI18n()
+let { lang } = $(useLanguage())
+
+let texts = $computed<Record<string, Component>>(() => {
+  const prefix = `../texts/${lang}/`
+  return Object.fromEntries(
+    Object.entries(import.meta.globEager('../texts/**'))
+      .filter(([key]) => key.startsWith(prefix))
+      .map(([key, value]) => [
+        capitalize(camelize(key.replace(prefix, '').replace('.md', ''))),
+        markRaw(value.default),
+      ])
+  )
+})
+const { BeforeYouStart, ReproductionLink, MarkdownSupported } =
+  Object.fromEntries(
+    Object.entries(texts).map(([key]) => [key, computed(() => texts[key])])
+  )
 
 const userAgent = navigator.userAgent
-const exampleMarkdwonWrapper = `
-\`\`\`vue
-// code here
-\`\`\``.trim()
-
 const epVersions = getSupportedEpVersion()
 const vueVersions = getSupportedVueVersion()
 
@@ -42,9 +58,11 @@ watch(
   <el-row class="content" justify="center">
     <el-col :xs="18" :sm="18" :md="12">
       <div class="bg-#ecf5ff rounded-lg my-4 p-4">
-        <h1 class="my-1 fw-400">Before You Start...</h1>
-        <p class="leading-6" v-html="texts.beforeYouStart" />
-        <a class="text-base" tabindex="-1">Why are we so strict about this?</a>
+        <h1 class="my-1 fw-400">{{ t('beforeYouStart') }}</h1>
+        <p class="leading-6">
+          <BeforeYouStart />
+        </p>
+        <a class="text-base" tabindex="-1">{{ t('whyStrict') }} (WIP)</a>
       </div>
 
       <el-form
@@ -54,20 +72,22 @@ watch(
         size="small"
         label-position="top"
       >
-        <el-form-item label="This is a" prop="type">
+        <el-form-item :label="t('issueType')" prop="type">
           <el-radio-group v-model="form.type">
-            <el-radio-button label="bug-report">Bug Report</el-radio-button>
-            <el-radio-button label="feature-request">
-              Feature Request
+            <el-radio-button label="bug-report">
+              {{ t('issueTypeBugReport') }}
+            </el-radio-button>
+            <el-radio-button label="feature-request" disabled>
+              {{ t('issueTypeFeatureRequest') }} (WIP)
             </el-radio-button>
           </el-radio-group>
         </el-form-item>
 
-        <el-form-item label="Issue title" prop="title" required>
+        <el-form-item :label="t('issueTitle')" prop="title" required>
           <el-input v-model="form.title" />
         </el-form-item>
 
-        <el-form-item label="Bug Type" required>
+        <el-form-item :label="t('bug.type')" required>
           <el-select v-model="form.bugType" clearable>
             <el-option
               v-for="bugType in bugTypes"
@@ -78,12 +98,12 @@ watch(
           </el-select>
         </el-form-item>
 
-        <h2 class="sub-title">Enviroment</h2>
+        <h2 class="sub-title">{{ t('bug.enviroment') }}</h2>
 
         <el-row :gutter="16">
           <el-col :span="12">
             <el-form-item
-              label="Element Plus Version"
+              :label="t('bug.elementPlusVersion')"
               prop="epVersion"
               required
             >
@@ -97,13 +117,16 @@ watch(
               </el-select>
 
               <p class="text-sm text-gray-500">
-                Check if the issue is reproducible with the latest stable
-                version of Element Plus.
+                {{ t('bug.elementPlusVersionHint') }}
               </p>
             </el-form-item>
           </el-col>
           <el-col :span="12">
-            <el-form-item label="Vue Version" prop="vueVersion" required>
+            <el-form-item
+              :label="t('bug.vueVersion')"
+              prop="vueVersion"
+              required
+            >
               <el-select
                 v-model="form.vueVersion"
                 clearable
@@ -118,14 +141,13 @@ watch(
                 </el-option>
               </el-select>
               <p class="text-sm text-gray-500">
-                Check if the issue is reproducible with the latest stable
-                version of Vue.
+                {{ t('bug.vueVersionHint') }}
               </p>
             </el-form-item>
           </el-col>
 
           <el-col :span="12">
-            <el-form-item label="Browser / OS" prop="browser" required>
+            <el-form-item :label="t('bug.browserOS')" prop="browser" required>
               <el-input
                 v-model="form.browser"
                 placeholder="e.g. Chrome 96.0.4664.45 / macOS 12.0.1"
@@ -138,7 +160,7 @@ watch(
           </el-col>
 
           <el-col :span="12">
-            <el-form-item label="Build Tool" prop="buildTool" required>
+            <el-form-item :label="t('bug.buildTool')" prop="buildTool" required>
               <el-radio-group v-model="form.buildTool">
                 <el-radio v-for="name in buildTools" :key="name" :label="name">
                   {{ name }}
@@ -148,10 +170,10 @@ watch(
           </el-col>
         </el-row>
 
-        <h2 class="sub-title">Reproduction</h2>
+        <h2 class="sub-title">{{ t('bug.reproduction') }}</h2>
 
         <el-form-item
-          label="Which components are affected?"
+          :label="t('bug.affectedComponents')"
           prop="components"
           required
         >
@@ -172,26 +194,23 @@ watch(
         </el-form-item>
 
         <el-form-item
-          label="Link to minimal reproduction"
+          :label="t('bug.minimalReproduction')"
           prop="reproductionLink"
           required
         >
           <el-input v-model="form.reproductionLink" />
-          <div v-html="texts.reproductionLink" />
+          <reproduction-link />
         </el-form-item>
 
         <div class="bg-#fdf6ec rounded-lg mt-4 mb-2 p-4 text-gray-600">
-          <div v-html="texts.markdownSupported" />
-          <el-input
-            class="font-mono"
-            :model-value="exampleMarkdwonWrapper"
-            type="textarea"
-            autosize
-            readonly
-          />
+          <markdown-supported />
         </div>
 
-        <el-form-item label="Steps to reproduce" prop="reproduce" required>
+        <el-form-item
+          :label="t('bug.stepsToReproduce')"
+          prop="reproduce"
+          required
+        >
           <el-input
             v-model="form.reproduce"
             class="font-mono"
@@ -202,7 +221,7 @@ watch(
 
         <el-row :gutter="16">
           <el-col :span="12">
-            <el-form-item label="What is expected?" prop="expected" required>
+            <el-form-item :label="t('bug.expected')" prop="expected" required>
               <el-input
                 v-model="form.expected"
                 class="font-mono"
@@ -214,7 +233,7 @@ watch(
 
           <el-col :span="12">
             <el-form-item
-              label="What is actually happening?"
+              :label="t('bug.actuallyHappening')"
               prop="actual"
               required
             >
@@ -228,10 +247,7 @@ watch(
           </el-col>
         </el-row>
 
-        <el-form-item
-          label="Any additional comments? (optional)"
-          prop="additional"
-        >
+        <el-form-item :label="t('bug.additionalComments')" prop="additional">
           <el-input
             v-model="form.additional"
             class="font-mono"
@@ -248,10 +264,12 @@ watch(
               size="large"
               @click="handlePreview"
             >
-              Preview
+              {{ t('preview') }}
             </el-button>
             <div class="flex-1 text-right">
-              <el-button class="" size="mini" @click="reset">Reset</el-button>
+              <el-button type="danger" plain size="mini" @click="reset">
+                {{ t('resetForm') }}
+              </el-button>
             </div>
           </div>
         </el-form-item>
