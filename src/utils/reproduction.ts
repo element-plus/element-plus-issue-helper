@@ -1,5 +1,5 @@
 export const reproductions = [
-  { name: 'Element Playground', domain: 'play.element-plus.org' },
+  { name: 'Element Plus Playground', domain: 'play.element-plus.org' },
   { name: 'JSFiddle', domain: 'jsfiddle.net' },
   { name: 'CodePen', domain: 'codepen.io' },
   { name: 'CodeSandbox', domain: 'codesandbox.io' },
@@ -49,7 +49,7 @@ export const checkReproductionLink = (text: string) => {
     )
   }
 
-  if (resolved.name === 'Element Playground') {
+  if (resolved.name === 'Element Plus Playground') {
     try {
       const parsed = window.atob(url.hash.replace(/^#/, ''))
       JSON.parse(parsed)
