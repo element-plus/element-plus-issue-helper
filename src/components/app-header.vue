@@ -1,8 +1,7 @@
 <script setup lang="ts">
-import { useLanguage } from '@/hooks/language'
+import { languages, useLanguage } from '@/hooks/language'
 
-const { getLangages, lang } = useLanguage()
-const languages = getLangages()
+const { lang } = useLanguage()
 </script>
 
 <template>
@@ -15,12 +14,12 @@ const languages = getLangages()
 
     <div class="flex">
       <div
-        v-for="language in languages"
-        :key="language.id"
-        :class="{ 'nav-menu-item': true, active: language.id === lang }"
-        @click="lang = language.id"
+        v-for="(name, id) in languages"
+        :key="id"
+        :class="{ 'nav-menu-item': true, active: id === lang }"
+        @click="lang = id"
       >
-        {{ language.name }}
+        {{ name }}
       </div>
       <a
         class="nav-menu-item"

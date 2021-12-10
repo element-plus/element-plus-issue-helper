@@ -3,9 +3,13 @@ import en from 'element-plus/es/locale/lang/en'
 
 let storedLang = $(useLocalStorage('lang', navigator.language))
 
+export const languages = {
+  en: 'English',
+  'zh-CN': '简体中文',
+}
+
 export const useLanguage = () => {
-  const { locale, availableLocales, fallbackLocale, getLocaleMessage } =
-    useI18n()
+  const { locale, availableLocales, fallbackLocale } = useI18n()
 
   const lang = computed({
     get: () =>
@@ -21,12 +25,6 @@ export const useLanguage = () => {
     },
   })
 
-  const getLangages = () =>
-    availableLocales.map((locale) => ({
-      id: locale,
-      name: (getLocaleMessage(locale).name as any).source as string,
-    }))
-
   const epLocale = computed(() => (lang.value === 'en' ? en : zhCn))
 
   if (lang.value !== storedLang) {
@@ -36,6 +34,5 @@ export const useLanguage = () => {
   return {
     lang,
     epLocale,
-    getLangages,
   }
 }
