@@ -27,10 +27,7 @@ export default defineConfig({
   plugins: [
     vue({
       include: [/\.vue$/, /\.md$/],
-      refTransform: `${pathSrc}/**`,
-      script: {
-        propsDestructureTransform: true,
-      },
+      reactivityTransform: `${pathSrc}/**`,
     }),
 
     AutoImport({
