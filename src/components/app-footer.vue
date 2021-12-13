@@ -1,5 +1,5 @@
 <script lang="ts" setup>
-const version = import.meta.env.VERSION
+const version = import.meta.env.APP_VERSION
 </script>
 
 <template>
@@ -17,6 +17,7 @@ const version = import.meta.env.VERSION
       class="no-underline"
       style="color: var(--el-color-primary)"
       href="https://github.com/element-plus/element-plus-issue-helper"
+      target="_blank"
     >
       Element Plus Issue Helper v{{ version }}
     </a>

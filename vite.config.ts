@@ -22,7 +22,7 @@ export default defineConfig({
     },
   },
   define: {
-    'import.meta.env.VERSION': JSON.stringify(pkg.version),
+    'import.meta.env.APP_VERSION': JSON.stringify(pkg.version),
   },
   plugins: [
     vue({
