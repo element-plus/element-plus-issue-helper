@@ -65,13 +65,7 @@ watch(
         <a class="text-base" tabindex="-1">{{ t('whyStrict') }} (WIP)</a>
       </div>
 
-      <el-form
-        ref="form$"
-        :model="form"
-        :rules="rules"
-        size="small"
-        label-position="top"
-      >
+      <el-form ref="form$" :model="form" :rules="rules" label-position="top">
         <el-form-item :label="t('issueType')" prop="type">
           <el-radio-group v-model="form.type">
             <el-radio-button label="bug-report">
@@ -257,7 +251,6 @@ watch(
         </el-form-item>
 
         <el-form-item>
-          <div class="flex">
             <el-button
               class="flex-grow-0"
               type="primary"
@@ -267,10 +260,9 @@ watch(
               {{ t('preview') }}
             </el-button>
             <div class="flex-1 text-right">
-              <el-button type="danger" plain size="mini" @click="reset">
+            <el-button type="danger" plain @click="reset">
                 {{ t('resetForm') }}
               </el-button>
-            </div>
           </div>
         </el-form-item>
       </el-form>
@@ -286,7 +278,7 @@ watch(
     padding-bottom: 0;
   }
 
-  :deep(.el-form-item--small.el-form-item) {
+  :deep(.el-form-item--default.el-form-item) {
     margin-bottom: 8px;
   }
 
