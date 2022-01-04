@@ -1,5 +1,5 @@
 export const reproductions = [
-  { name: 'Element Plus Playground', domain: 'play.element-plus.org' },
+  { name: 'Element Plus Playground', domain: 'element-plus.run' },
   { name: 'JSFiddle', domain: 'jsfiddle.net' },
   { name: 'CodePen', domain: 'codepen.io' },
   { name: 'CodeSandbox', domain: 'codesandbox.io' },
@@ -21,7 +21,7 @@ export const removeReproductionPrefix = (text: string) => text.replace(/^!/, '')
 
 export const checkReproductionLink = (text: string) => {
   const reproduction = [
-    /https?:\/\/play.element-plus.org\/?$/,
+    /https?:\/\/element-plus\.run\/?$/,
     'https://jsfiddle.net/iamkun/ods20k7t/4',
     'https://codepen.io/iamkun/pen/YzWMaVr',
     'https://codesandbox.io/s/element-plus-spa-ms973',
