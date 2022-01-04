@@ -2,6 +2,19 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.1.1](https://github.com/element-plus/element-plus-issue-helper/compare/v0.1.0...v0.1.1) (2022-01-04)
+
+
+### Features
+
+* upgrade element-plus ([73bceed](https://github.com/element-plus/element-plus-issue-helper/commit/73bceed1a71424c3286f8c8144de468f6258ce17))
+
+
+### Bug Fixes
+
+* change playground domain ([f076fac](https://github.com/element-plus/element-plus-issue-helper/commit/f076facbfb42e26407c0a30a124d675265b914d7))
+* language list ([2ca8694](https://github.com/element-plus/element-plus-issue-helper/commit/2ca8694b8b294073aa8716c366dc1e4a221a2cf0))
+
 ## [0.1.0](https://github.com/element-plus/element-plus-issue-helper/compare/v0.0.9...v0.1.0) (2021-12-10)
 
 
