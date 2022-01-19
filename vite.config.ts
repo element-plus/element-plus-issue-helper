@@ -39,6 +39,7 @@ export default defineConfig({
       // allow auto import and register components used in markdown
       include: [/\.vue$/, /\.vue\?vue/, /\.md$/],
       resolvers: [ElementPlusResolver()],
+      dts: path.resolve(pathSrc, 'components.d.ts'),
     }),
     Markdown({
       wrapperClasses: '',
