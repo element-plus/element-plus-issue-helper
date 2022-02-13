@@ -4,10 +4,10 @@ issueTitle: issue 标题
 issueType: 这是一个
 issueTypeBugReport: Bug 报告
 issueTypeFeatureRequest: 功能请求
-issuePreivew: issue 预览
+issuePreview: issue 预览
 bug:
   type: Bug 类型
-  enviroment: 环境信息
+  environment: 环境信息
   elementPlusVersion: Element Plus 版本
   elementPlusVersionHint: 请检查该问题是否可以使用最新的 Element Plus 版本重现。
   vueVersion: Vue 版本

@@ -4,10 +4,10 @@ issueTitle: Issue title
 issueType: This is a
 issueTypeBugReport: Bug Report
 issueTypeFeatureRequest: Feature Request
-issuePreivew: Issue Preview
+issuePreview: Issue Preview
 bug:
   type: Bug Type
-  enviroment: Enviroment
+  environment: Environment
   elementPlusVersion: Element Plus Version
   elementPlusVersionHint: Check if the issue is reproducible with the latest version of Element Plus.
   vueVersion: Vue Version

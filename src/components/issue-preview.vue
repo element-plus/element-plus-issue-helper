@@ -34,7 +34,7 @@ const create = () => {
 
 <template>
   <el-dialog
-    :title="t('issuePreivew')"
+    :title="t('issuePreview')"
     :model-value="modelValue"
     @update:model-value="$emit('update:modelValue', $event)"
   >

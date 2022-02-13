@@ -92,7 +92,7 @@ watch(
           </el-select>
         </el-form-item>
 
-        <h2 class="sub-title">{{ t('bug.enviroment') }}</h2>
+        <h2 class="sub-title">{{ t('bug.environment') }}</h2>
 
         <el-row :gutter="16">
           <el-col :span="12">
