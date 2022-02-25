@@ -251,18 +251,18 @@ watch(
         </el-form-item>
 
         <el-form-item>
-            <el-button
-              class="flex-grow-0"
-              type="primary"
-              size="large"
-              @click="handlePreview"
-            >
-              {{ t('preview') }}
-            </el-button>
-            <div class="flex-1 text-right">
+          <el-button
+            class="flex-grow-0"
+            type="primary"
+            size="large"
+            @click="handlePreview"
+          >
+            {{ t('preview') }}
+          </el-button>
+          <div class="flex-1 text-right">
             <el-button type="danger" plain @click="reset">
-                {{ t('resetForm') }}
-              </el-button>
+              {{ t('resetForm') }}
+            </el-button>
           </div>
         </el-form-item>
       </el-form>
