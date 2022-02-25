@@ -32,4 +32,13 @@ a:active {
   color: var(--el-color-primary);
   text-decoration: underline;
 }
+
+details {
+  summary {
+    cursor: pointer;
+  }
+  p {
+    margin: 0;
+  }
+}
 </style>

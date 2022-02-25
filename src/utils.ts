@@ -10,21 +10,24 @@ export const getVersions = (pkg: string) =>
     afterFetch: (ctx) => ((ctx.data = ctx.data.versions), ctx),
   }).json<string[]>().data as Ref<string[]>
 
-export const getSupportedVueVersion = () => {
-  let versions = $(getVersions('vue'))
+export const useSupportedVueVersion = () => {
+  const versions = $(getVersions('vue'))
   return computed(() =>
     versions.filter((version) => compare(version, '3.2.0', '>='))
   )
 }
 
-export const getSupportedEpVersion = () => {
-  let versions = $(getVersions('element-plus'))
+export const useSupportedEpVersion = () => {
+  const versions = $(getVersions('element-plus'))
   return computed(() =>
     versions.filter((version) => compare(version, '1.1.0-beta.1', '>='))
   )
 }
 
-export const getFiles = (pkg: MaybeRef<string>, version: MaybeRef<string>) => {
+export const useNpmFiles = (
+  pkg: MaybeRef<string>,
+  version: MaybeRef<string>
+) => {
   type Files = {
     hash: string
     name: string

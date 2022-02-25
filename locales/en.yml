@@ -6,7 +6,7 @@ issueTypeBugReport: Bug Report
 issueTypeFeatureRequest: Feature Request
 issuePreview: Issue Preview
 bug:
-  type: Bug Type
+  type: Bug type
   environment: Environment
   elementPlusVersion: Element Plus Version
   elementPlusVersionHint: Check if the issue is reproducible with the latest version of Element Plus.
@@ -21,7 +21,12 @@ bug:
   expected: What is expected?
   actuallyHappening: What is actually happening?
   additionalComments: Any additional comments? (optional)
-  screenshot: If you need to insert a screenshot, please paste it here.
+feature:
+  featureType: Feature type
+  newComponentName: New Component name
+  enhancedComponentName: Component name that needs to be enhanced
+  description: Description
+screenshot: If you need to insert a screenshot, please paste it here.
 resetForm: Reset From
 preview: Preview
 create: Create

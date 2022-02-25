@@ -7,6 +7,7 @@ declare module 'vue' {
     AppContent: typeof import('./components/app-content.vue')['default']
     AppFooter: typeof import('./components/app-footer.vue')['default']
     AppHeader: typeof import('./components/app-header.vue')['default']
+    BugReport: typeof import('./components/form/bug-report.vue')['default']
     ElButton: typeof import('element-plus/es')['ElButton']
     ElCol: typeof import('element-plus/es')['ElCol']
     ElConfigProvider: typeof import('element-plus/es')['ElConfigProvider']
@@ -21,7 +22,9 @@ declare module 'vue' {
     ElRadioGroup: typeof import('element-plus/es')['ElRadioGroup']
     ElRow: typeof import('element-plus/es')['ElRow']
     ElSelect: typeof import('element-plus/es')['ElSelect']
-    IssuePreview: typeof import('./components/issue-preview.vue')['default']
+    FeatureRequest: typeof import('./components/form/feature-request.vue')['default']
+    IssueForm: typeof import('./components/form/issue-form.vue')['default']
+    IssuePreview: typeof import('./components/form/issue-preview.vue')['default']
   }
 }
 

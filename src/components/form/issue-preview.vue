@@ -1,6 +1,6 @@
 <script lang="ts" setup>
 import { marked } from 'marked'
-import { templateBugReport } from '@/hooks/forms'
+import { templateBugReport, templateFeatureRequest } from '@/hooks/forms'
 import type { Form } from '@/hooks/forms'
 
 const props = defineProps<{
@@ -13,11 +13,15 @@ defineEmits<{
 
 const { t } = useI18n()
 
-let template = $computed(() => {
-  // if (props.form.type === 'bug-report')
-  return templateBugReport(props.form)
+const template = $computed(() => {
+  switch (props.form.type) {
+    case 'bug-report':
+      return templateBugReport(props.form)
+    case 'feature-request':
+      return templateFeatureRequest(props.form)
+  }
 })
-let content = $computed(() =>
+const content = $computed(() =>
   marked(`# ${template.title}\n\n${template.content}`, {
     gfm: true,
     breaks: true,
