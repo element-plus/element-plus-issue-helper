@@ -26,7 +26,7 @@ feature:
   newComponentName: 新增的组件名称
   enhancedComponentName: 需要增强的组件
   description: 描述
-screenshot: 如果您需要插入截图，请在这粘贴。
+screenshot: 如果你需要插入截图，请在这粘贴。
 resetForm: 清空表单
 preview: 预览
 create: 创建
