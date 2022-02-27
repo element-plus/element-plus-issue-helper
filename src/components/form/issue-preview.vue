@@ -29,9 +29,10 @@ const content = $computed(() =>
 )
 
 const create = () => {
-  const content = encodeURIComponent(template.content)
   window.open(
-    `https://github.com/element-plus/element-plus/issues/new?title=${template.title}&body=${content}`
+    `https://github.com/element-plus/element-plus/issues/new?title=${encodeURIComponent(
+      template.title
+    )}&body=${encodeURIComponent(template.content)}`
   )
 }
 </script>
