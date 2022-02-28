@@ -42,7 +42,7 @@ watch(
 </script>
 
 <template>
-  <el-form-item :label="t('bug.type')" required>
+  <el-form-item :label="t('bug.type')" prop="bugReport.bugType" required>
     <el-select v-model="form.bugType" clearable>
       <el-option
         v-for="bugType in bugTypes"
@@ -210,3 +210,12 @@ watch(
     </el-col>
   </el-row>
 </template>
+
+<style lang="less" scoped>
+.sub-title {
+  border-bottom: 1px solid var(--el-border-color-base);
+  color: #333;
+  padding-bottom: 0.25rem;
+  margin: 1rem 0 0.5rem 0;
+}
+</style>

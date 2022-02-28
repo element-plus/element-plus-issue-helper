@@ -74,22 +74,3 @@ const handlePreview = async () => {
 
   <issue-preview v-model="preview" :form="form" />
 </template>
-
-<style lang="less" scoped>
-.form {
-  :deep(.el-form--label-top .el-form-item__label) {
-    padding-bottom: 0;
-  }
-
-  :deep(.el-form-item--default.el-form-item) {
-    margin-bottom: 8px;
-  }
-
-  :deep(.sub-title) {
-    border-bottom: 1px solid var(--el-border-color-base);
-    color: #333;
-    padding-bottom: 0.25rem;
-    margin: 1rem 0 0.5rem 0;
-  }
-}
-</style>
