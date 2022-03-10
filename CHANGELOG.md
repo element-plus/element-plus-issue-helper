@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.2.6](https://github.com/element-plus/element-plus-issue-helper/compare/v0.2.5...v0.2.6) (2022-03-10)
+
+
+### Bug Fixes
+
+* github icon color ([d9756ba](https://github.com/element-plus/element-plus-issue-helper/commit/d9756ba4b0e4be20957256e707f93f3ad537310a))
+
 ### [0.2.5](https://github.com/element-plus/element-plus-issue-helper/compare/v0.2.4...v0.2.5) (2022-03-10)
 
 ### [0.2.4](https://github.com/element-plus/element-plus-issue-helper/compare/v0.2.3...v0.2.4) (2022-02-28)
