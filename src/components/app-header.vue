@@ -26,7 +26,7 @@ const { lang } = useLanguage()
         href="https://github.com/element-plus/element-plus"
         target="_blank"
       >
-        <div i-mdi-github text-xl />
+        <span i-mdi-github text-xl text-black />
       </a>
     </div>
   </div>
