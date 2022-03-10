@@ -64,7 +64,7 @@ const components = useComponentList(epVersions)
     </el-select>
   </el-form-item>
 
-  <div class="bg-#fdf6ec rounded-lg mt-4 mb-2 p-4 text-gray-600">
+  <div class="bg-#fdf6ec" rounded-lg mt-4 mb-2 p-4 text-gray-600>
     <markdown-supported />
   </div>
 
@@ -75,7 +75,7 @@ const components = useComponentList(epVersions)
   >
     <el-input
       v-model="form.description"
-      class="font-mono"
+      font-mono
       type="textarea"
       :autosize="{ minRows: 3, maxRows: 10 }"
   /></el-form-item>

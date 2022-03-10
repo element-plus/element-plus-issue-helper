@@ -6,13 +6,13 @@ const { lang } = useLanguage()
 
 <template>
   <div class="nav-menu">
-    <div class="flex items-center ml-4">
+    <div flex="~" items-center ml-4>
       <a href="https://element-plus.org/" target="_blank">
-        <img src="@/assets/element-plus-logo.svg" alt="Logo" class="h-6" />
+        <img src="@/assets/element-plus-logo.svg" alt="Logo" h-6 />
       </a>
     </div>
 
-    <div class="flex">
+    <div flex>
       <div
         v-for="(name, id) in languages"
         :key="id"
@@ -26,7 +26,7 @@ const { lang } = useLanguage()
         href="https://github.com/element-plus/element-plus"
         target="_blank"
       >
-        <div class="i-mdi-github text-xl" />
+        <div i-mdi-github text-xl />
       </a>
     </div>
   </div>

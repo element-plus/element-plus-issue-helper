@@ -8,12 +8,12 @@ const { BeforeYouStart } = useTexts()
 <template>
   <el-row class="content" justify="center">
     <el-col :xs="18" :sm="18" :md="12">
-      <div class="bg-#ecf5ff rounded-lg my-4 p-4">
-        <h1 class="my-1 fw-400">{{ t('beforeYouStart') }}</h1>
-        <p class="leading-6">
+      <div class="bg-#ecf5ff" rounded-lg my-4 p-4>
+        <h1 my-1 fw-400>{{ t('beforeYouStart') }}</h1>
+        <p leading-6>
           <BeforeYouStart />
         </p>
-        <a class="text-base" tabindex="-1">{{ t('whyStrict') }} (WIP)</a>
+        <a text-base tabindex="-1">{{ t('whyStrict') }} (WIP)</a>
       </div>
 
       <issue-form />

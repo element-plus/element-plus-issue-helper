@@ -71,7 +71,7 @@ watch(
           >
         </el-select>
 
-        <p class="text-sm text-gray-500">
+        <p text-sm text-gray-500>
           {{ t('bug.elementPlusVersionHint') }}
         </p>
       </el-form-item>
@@ -91,7 +91,7 @@ watch(
             {{ version }}
           </el-option>
         </el-select>
-        <p class="text-sm text-gray-500">
+        <p text-sm text-gray-500>
           {{ t('bug.vueVersionHint') }}
         </p>
       </el-form-item>
@@ -108,9 +108,7 @@ watch(
           placeholder="e.g. Chrome 96.0.4664.45 / macOS 12.0.1"
         />
 
-        <p class="text-xs text-gray-500 font-mono">
-          UserAgent: {{ userAgent }}
-        </p>
+        <p text-xs text-gray-500 font-mono>UserAgent: {{ userAgent }}</p>
       </el-form-item>
     </el-col>
 
@@ -161,7 +159,7 @@ watch(
     <reproduction-link />
   </el-form-item>
 
-  <div class="bg-#fdf6ec rounded-lg mt-4 mb-2 p-4 text-gray-600">
+  <div class="bg-#fdf6ec" rounded-lg mt-4 mb-2 p-4 text-gray-600>
     <markdown-supported />
   </div>
 
@@ -172,7 +170,7 @@ watch(
   >
     <el-input
       v-model="form.reproduce"
-      class="font-mono"
+      font-mono
       type="textarea"
       :autosize="{ minRows: 3, maxRows: 10 }"
     />
@@ -187,7 +185,7 @@ watch(
       >
         <el-input
           v-model="form.expected"
-          class="font-mono"
+          font-mono
           type="textarea"
           :autosize="{ minRows: 3, maxRows: 10 }"
         />
@@ -202,7 +200,7 @@ watch(
       >
         <el-input
           v-model="form.actual"
-          class="font-mono"
+          font-mono
           type="textarea"
           :autosize="{ minRows: 3, maxRows: 10 }"
         />

@@ -49,22 +49,17 @@ const handlePreview = async () => {
     <el-form-item :label="t('bug.additionalComments')" prop="additional">
       <el-input
         v-model="form.additional"
-        class="font-mono"
+        font-mono
         type="textarea"
         :autosize="{ minRows: 3, maxRows: 10 }"
       />
     </el-form-item>
 
     <el-form-item>
-      <el-button
-        class="flex-grow-0"
-        type="primary"
-        size="large"
-        @click="handlePreview"
-      >
-        {{ t('preview') }}
-      </el-button>
-      <div class="flex-1 text-right">
+      <div w-full flex="~" justify-between items-center>
+        <el-button type="primary" size="large" @click="handlePreview">
+          {{ t('preview') }}
+        </el-button>
         <el-button type="danger" plain @click="reset">
           {{ t('resetForm') }}
         </el-button>

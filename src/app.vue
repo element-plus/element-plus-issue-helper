@@ -12,7 +12,7 @@ const { epLocale } = useLanguage()
 
 <template>
   <el-config-provider :locale="epLocale">
-    <div class="antialiased">
+    <div antialiased>
       <app-header />
       <app-content />
       <app-footer />
