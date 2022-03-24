@@ -1,13 +1,13 @@
 {
   "name": "element-plus-issue-helper",
   "version": "0.2.6",
+  "bugs": {
+    "url": "https://github.com/element-plus/element-plus-issue-helper/issues"
+  },
+  "author": "三咲智子 <sxzz@sxzz.moe>",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/element-plus/element-plus-issue-helper.git"
-  },
-  "author": "三咲智子 <sxzz@sxzz.moe>",
-  "bugs": {
-    "url": "https://github.com/element-plus/element-plus-issue-helper/issues"
   },
   "scripts": {
     "dev": "vite",
@@ -32,9 +32,6 @@
     "@types/markdown-it": "^12.2.3",
     "@types/marked": "^4.0.3",
     "@types/node": "*",
-    "@unocss/preset-attributify": "^0.28.3",
-    "@unocss/preset-icons": "^0.28.3",
-    "@unocss/preset-uno": "^0.28.3",
     "@vitejs/plugin-vue": "^2.2.4",
     "@vueuse/core": "^8.1.2",
     "eslint": "^8.11.0",
@@ -45,12 +42,12 @@
     "markdown-it-link-attributes": "^4.0.0",
     "standard-version": "^9.3.2",
     "typescript": "~4.6.2",
-    "unocss": "^0.28.3",
+    "unocss": "^0.30.0",
     "unplugin-auto-import": "^0.6.6",
     "unplugin-vue-components": "^0.18.4",
     "vite": "^2.8.6",
     "vite-plugin-inspect": "^0.4.3",
-    "vite-plugin-md": "^0.11.9",
+    "vite-plugin-md": "^0.12.3",
     "vue-tsc": "^0.33.7"
   }
 }

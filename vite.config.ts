@@ -6,9 +6,6 @@ import Components from 'unplugin-vue-components/vite'
 import { ElementPlusResolver } from 'unplugin-vue-components/resolvers'
 import AutoImport from 'unplugin-auto-import/vite'
 import Unocss from 'unocss/vite'
-import presetUno from '@unocss/preset-uno'
-import presetIcons from '@unocss/preset-icons'
-import presetAttributify from '@unocss/preset-attributify'
 import Markdown from 'vite-plugin-md'
 import LinkAttributes from 'markdown-it-link-attributes'
 import VueI18n from '@intlify/vite-plugin-vue-i18n'
@@ -28,7 +25,7 @@ export default defineConfig({
   plugins: [
     vue({
       include: [/\.vue$/, /\.md$/],
-      reactivityTransform: `${pathSrc}/**`,
+      reactivityTransform: true,
     }),
 
     AutoImport({
@@ -55,9 +52,7 @@ export default defineConfig({
       },
     }),
     Inspect(),
-    Unocss({
-      presets: [presetUno(), presetIcons(), presetAttributify()],
-    }),
+    Unocss(),
     VueI18n({
       runtimeOnly: true,
       compositionOnly: true,
