@@ -211,7 +211,7 @@ watch(
 
 <style lang="less" scoped>
 .sub-title {
-  border-bottom: 1px solid var(--el-border-color-base);
+  border-bottom: 1px solid var(--el-border-color);
   color: #333;
   padding-bottom: 0.25rem;
   margin: 1rem 0 0.5rem 0;

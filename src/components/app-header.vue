@@ -37,7 +37,7 @@ const { lang } = useLanguage()
   display: flex;
   justify-content: space-between;
   height: 3rem;
-  border-bottom: 1px solid var(--el-border-color-base);
+  border-bottom: 1px solid var(--el-border-color);
 
   .nav-menu-item {
     display: flex;
