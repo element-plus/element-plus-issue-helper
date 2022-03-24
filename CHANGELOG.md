@@ -2,6 +2,18 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.2.7](https://github.com/element-plus/element-plus-issue-helper/compare/v0.2.6...v0.2.7) (2022-03-24)
+
+
+### Features
+
+* add i18n for bug and feature types ([470bcc8](https://github.com/element-plus/element-plus-issue-helper/commit/470bcc8553cf51234aecf80d101f34903ce232eb))
+
+
+### Bug Fixes
+
+* border color var ([d712493](https://github.com/element-plus/element-plus-issue-helper/commit/d712493d38ec375c9fb33ab2732ae453ff90cb76))
+
 ### [0.2.6](https://github.com/element-plus/element-plus-issue-helper/compare/v0.2.5...v0.2.6) (2022-03-10)
 
 
