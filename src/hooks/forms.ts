@@ -25,6 +25,7 @@ export const bugTypes = [
   'Style',
   'i18n',
   'Build',
+  'Performance',
   'Docs',
   'Other',
 ] as const

@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { useComponentList, buildTools, bugTypes } from '@/hooks/forms'
+import { bugTypes, buildTools, useComponentList } from '@/hooks/forms'
 import { useSupportedEpVersion, useSupportedVueVersion } from '@/utils'
 import { useTexts } from '@/hooks/texts'
 import type { FormBugReport } from '@/hooks/forms'
@@ -26,6 +26,10 @@ const components = useComponentList(
 
 let componentsLimit = $ref(5)
 
+const bugTypesText = $computed(() =>
+  bugTypes.map((type) => t(`bug.bugTypes.${type}`, type))
+)
+
 watch(
   () => form.components,
   (components) => {
@@ -45,10 +49,10 @@ watch(
   <el-form-item :label="t('bug.type')" prop="bugReport.bugType" required>
     <el-select v-model="form.bugType" clearable>
       <el-option
-        v-for="bugType in bugTypes"
+        v-for="(bugType, index) in bugTypes"
         :key="bugType"
         :value="bugType"
-        :label="bugType"
+        :label="bugTypesText[index]"
       />
     </el-select>
   </el-form-item>

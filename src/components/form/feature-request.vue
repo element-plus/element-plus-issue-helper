@@ -15,6 +15,10 @@ const emit = defineEmits<{
 
 const form = $(useVModel(props, 'form', emit))
 
+const featureTypesText = $computed(() =>
+  featureTypes.map((type) => t(`feature.featureTypes.${type}`, type))
+)
+
 const epVersions = useSupportedEpVersion()
 const components = useComponentList(epVersions)
 </script>
@@ -27,10 +31,10 @@ const components = useComponentList(epVersions)
   >
     <el-select v-model="form.featureType" clearable>
       <el-option
-        v-for="featureType in featureTypes"
+        v-for="(featureType, index) in featureTypes"
         :key="featureType"
         :value="featureType"
-        :label="featureType"
+        :label="featureTypesText[index]"
       />
     </el-select>
   </el-form-item>
