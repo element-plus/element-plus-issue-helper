@@ -2,6 +2,14 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.2.8](https://github.com/element-plus/element-plus-issue-helper/compare/v0.2.7...v0.2.8) (2022-04-22)
+
+
+### Features
+
+* add build tool ([2131ba3](https://github.com/element-plus/element-plus-issue-helper/commit/2131ba3d9ce48974d0d436d4e04507a2eea18d92))
+* add labels ([2b18872](https://github.com/element-plus/element-plus-issue-helper/commit/2b1887276fdb53d0481cd39c6bcbfcdefc682c9b))
+
 ### [0.2.7](https://github.com/element-plus/element-plus-issue-helper/compare/v0.2.6...v0.2.7) (2022-03-24)
 
 
