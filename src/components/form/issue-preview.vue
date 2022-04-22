@@ -1,5 +1,6 @@
 <script lang="ts" setup>
 import { marked } from 'marked'
+import newGithubIssueUrl from 'new-github-issue-url'
 import { templateBugReport, templateFeatureRequest } from '@/hooks/forms'
 import type { Form } from '@/hooks/forms'
 
@@ -29,11 +30,14 @@ const content = $computed(() =>
 )
 
 const create = () => {
-  window.open(
-    `https://github.com/element-plus/element-plus/issues/new?title=${encodeURIComponent(
-      template.title
-    )}&body=${encodeURIComponent(template.content)}`
-  )
+  const url = newGithubIssueUrl({
+    user: 'element-plus',
+    repo: 'element-plus',
+    title: template.title,
+    body: template.content,
+    labels: template.labels,
+  })
+  window.open(url)
 }
 </script>
 
