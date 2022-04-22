@@ -15,6 +15,8 @@ export const buildTools = [
   'Webpack',
   'Vue CLI',
   'Rollup',
+  'esbuild',
+  'Nuxt',
   'CDN',
   'Other',
 ] as const
