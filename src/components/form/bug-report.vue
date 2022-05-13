@@ -213,11 +213,17 @@ watch(
   </el-row>
 </template>
 
-<style lang="less" scoped>
+<style lang="scss" scoped>
 .sub-title {
   border-bottom: 1px solid var(--el-border-color);
   color: #333;
   padding-bottom: 0.25rem;
   margin: 1rem 0 0.5rem 0;
+}
+
+.dark {
+  .sub-title {
+    color: #999;
+  }
 }
 </style>

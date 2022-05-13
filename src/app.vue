@@ -20,7 +20,7 @@ const { epLocale } = useLanguage()
   </el-config-provider>
 </template>
 
-<style lang="less">
+<style lang="scss">
 body {
   margin: 0;
   font-family: 'Helvetica Neue', Helvetica, 'PingFang SC', 'Hiragino Sans GB',

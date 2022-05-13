@@ -9,6 +9,7 @@ import Unocss from 'unocss/vite'
 import Markdown from 'vite-plugin-md'
 import LinkAttributes from 'markdown-it-link-attributes'
 import VueI18n from '@intlify/vite-plugin-vue-i18n'
+import Mkcert from 'vite-plugin-mkcert'
 import pkg from './package.json'
 
 const pathSrc = path.resolve(__dirname, 'src')
@@ -21,6 +22,9 @@ export default defineConfig({
   },
   define: {
     'import.meta.env.APP_VERSION': JSON.stringify(pkg.version),
+  },
+  server: {
+    https: true,
   },
   plugins: [
     vue({
@@ -58,5 +62,6 @@ export default defineConfig({
       compositionOnly: true,
       include: [path.resolve(__dirname, 'locales/**')],
     }),
+    Mkcert(),
   ],
 })

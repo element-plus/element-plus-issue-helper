@@ -2,6 +2,9 @@
 import { languages, useLanguage } from '@/hooks/language'
 
 const { lang } = useLanguage()
+
+const dark = useDark()
+const toggleDark = useToggle(dark)
 </script>
 
 <template>
@@ -12,27 +15,41 @@ const { lang } = useLanguage()
       </a>
     </div>
 
-    <div flex>
+    <div flex="~ gap-5" items-center mr-4>
       <div
         v-for="(name, id) in languages"
         :key="id"
-        :class="{ 'nav-menu-item': true, active: id === lang }"
+        :class="['nav-menu-item', { active: id === lang }]"
+        text-sm
         @click="lang = id"
       >
         {{ name }}
       </div>
+
+      <div
+        class="nav-menu-item"
+        i-carbon-sun
+        dark:i-carbon-moon
+        text-xl
+        text-black
+        dark:text-white
+        @click="toggleDark()"
+      />
+
       <a
         class="nav-menu-item"
         href="https://github.com/element-plus/element-plus"
         target="_blank"
-      >
-        <span i-mdi-github text-xl text-black />
-      </a>
+        i-mdi-github
+        text-xl
+        text-black
+        dark:text-white
+      />
     </div>
   </div>
 </template>
 
-<style lang="less" scoped>
+<style lang="scss" scoped>
 .nav-menu {
   display: flex;
   justify-content: space-between;
@@ -41,12 +58,9 @@ const { lang } = useLanguage()
 
   .nav-menu-item {
     display: flex;
-    padding: 0 0.8rem;
-    line-height: 3rem;
-    font-size: 14px;
     cursor: pointer;
-    align-items: center;
     transition: all 0.2s ease-in-out;
+
     &:hover,
     &.active {
       color: var(--el-color-primary);
