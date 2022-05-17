@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.2.11](https://github.com/element-plus/element-plus-issue-helper/compare/v0.2.10...v0.2.11) (2022-05-17)
+
+
+### Bug Fixes
+
+* preview when dark mode ([3956ffc](https://github.com/element-plus/element-plus-issue-helper/commit/3956ffc84260c446c34334a7af6a2c4d8d16df3b))
+
 ### [0.2.10](https://github.com/element-plus/element-plus-issue-helper/compare/v0.2.9...v0.2.10) (2022-05-13)
 
 
