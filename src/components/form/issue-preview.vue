@@ -47,13 +47,7 @@ const create = () => {
     :model-value="modelValue"
     @update:model-value="$emit('update:modelValue', $event)"
   >
-    <div
-      class="markdown-body"
-      text-sm
-      bg-transparent
-      color-current
-      v-html="content"
-    />
+    <div class="markdown-body" text-sm v-html="content" />
 
     <template #footer>
       <el-button type="primary" @click="create">{{ t('create') }}</el-button>

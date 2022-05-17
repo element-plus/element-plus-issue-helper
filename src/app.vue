@@ -5,7 +5,7 @@ import AppContent from '@/components/app-content.vue'
 import { useLanguage } from './hooks/language'
 import AppFooter from './components/app-footer.vue'
 
-import 'github-markdown-css/github-markdown-light.css'
+import 'github-markdown-css'
 
 const { epLocale } = useLanguage()
 </script>
