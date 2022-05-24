@@ -1,5 +1,4 @@
 <script setup lang="ts">
-import { useForm } from '@/hooks/forms'
 import type { ElForm } from 'element-plus'
 
 const { t } = useI18n()

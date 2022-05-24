@@ -1,7 +1,5 @@
 <script setup lang="ts">
-import { bugTypes, buildTools, useComponentList } from '@/hooks/forms'
-import { useSupportedEpVersion, useSupportedVueVersion } from '@/utils'
-import { useTexts } from '@/hooks/texts'
+import { bugTypes, buildTools } from '@/hooks/forms'
 import type { FormBugReport } from '@/hooks/forms'
 
 const props = defineProps<{

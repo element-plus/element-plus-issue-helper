@@ -1,6 +1,5 @@
 <script setup lang="ts">
-import { languages, useLanguage } from '@/hooks/language'
-
+import { languages } from '@/hooks/language'
 const { lang } = useLanguage()
 
 const dark = useDark()

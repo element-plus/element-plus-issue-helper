@@ -1,8 +1,7 @@
 <script setup lang="ts">
-import { featureTypes, useComponentList } from '@/hooks/forms'
-import { useTexts } from '@/hooks/texts'
-import { useSupportedEpVersion } from '@/utils'
+import { featureTypes } from '@/hooks/forms'
 import type { FormFeatureRequest } from '@/hooks/forms'
+
 const { t } = useI18n()
 const { MarkdownSupported } = useTexts()
 

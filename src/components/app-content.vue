@@ -1,6 +1,4 @@
 <script setup lang="ts">
-import { useTexts } from '@/hooks/texts'
-
 const { t } = useI18n()
 const { BeforeYouStart } = useTexts()
 </script>

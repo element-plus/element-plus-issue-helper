@@ -33,11 +33,13 @@ export default defineConfig({
     }),
 
     AutoImport({
+      dirs: [path.resolve(pathSrc, 'hooks'), path.resolve(pathSrc, 'utils')],
       imports: ['vue', '@vueuse/core', 'vue-i18n'],
       resolvers: [ElementPlusResolver()],
       dts: path.resolve(pathSrc, 'auto-imports.d.ts'),
     }),
     Components({
+      dirs: [path.resolve(pathSrc, 'components')],
       // allow auto import and register components used in markdown
       include: [/\.vue$/, /\.vue\?vue/, /\.md$/],
       resolvers: [ElementPlusResolver()],

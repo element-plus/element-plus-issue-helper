@@ -1,5 +1,3 @@
-import { unref, watch, shallowRef, computed } from 'vue'
-import { useFetch } from '@vueuse/core'
 import { compare } from 'compare-versions'
 import type { Ref } from 'vue'
 import type { MaybeRef } from '@vueuse/core'

@@ -1,10 +1,4 @@
 <script setup lang="ts">
-import AppHeader from '@/components/app-header.vue'
-import AppContent from '@/components/app-content.vue'
-
-import { useLanguage } from './hooks/language'
-import AppFooter from './components/app-footer.vue'
-
 import 'github-markdown-css'
 
 const { epLocale } = useLanguage()

@@ -1,11 +1,4 @@
-import { camelize, capitalize, computed } from 'vue'
-import { useLocalStorage } from '@vueuse/core'
-import { useNpmFiles } from '@/utils'
-import {
-  checkReproductionLink,
-  removeReproductionPrefix,
-  resolveReproductionLink,
-} from '@/utils/reproduction'
+import { camelize, capitalize } from '@vue/shared'
 import type { MaybeRef } from '@vueuse/core'
 import type { Ref } from 'vue'
 import type { Rule } from 'async-validator'
