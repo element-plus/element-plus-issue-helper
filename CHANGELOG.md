@@ -2,6 +2,18 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.2.12](https://github.com/element-plus/element-plus-issue-helper/compare/v0.2.11...v0.2.12) (2022-05-27)
+
+
+### Features
+
+* auto import ([c18ea9e](https://github.com/element-plus/element-plus-issue-helper/commit/c18ea9e025b363482391a862dd74660a25a795bd))
+
+
+### Bug Fixes
+
+* **forms:** Auto import referencing issue ([2d6dba3](https://github.com/element-plus/element-plus-issue-helper/commit/2d6dba3a556088819936d6f431dcfc9103a69f1d))
+
 ### [0.2.11](https://github.com/element-plus/element-plus-issue-helper/compare/v0.2.10...v0.2.11) (2022-05-17)
 
 
