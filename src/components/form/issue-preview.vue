@@ -1,7 +1,7 @@
 <script lang="ts" setup>
 import { marked } from 'marked'
 import newGithubIssueUrl from 'new-github-issue-url'
-import { templateBugReport, templateFeatureRequest } from '@/hooks/forms'
+import { templateBugReport, templateFeatureRequest } from '@/hooks/template'
 import type { Form } from '@/hooks/forms'
 
 const props = defineProps<{
