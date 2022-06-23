@@ -4,7 +4,7 @@ import type { Form } from './forms'
 export const templateBugReport = (form: Form) => {
   const { t } = useI18n()
 
-  const titleTags = ['Bug Report']
+  const titleTags = []
   if (form.bugReport.bugType !== 'Other') titleTags.push(form.bugReport.bugType)
   if (
     form.bugReport.components.length <= 2 &&
