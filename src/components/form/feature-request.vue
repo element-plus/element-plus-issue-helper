@@ -84,7 +84,7 @@ const components = useComponentList(epVersions)
     text-gray-600
     class="bg-#f4f4f5 dark:bg-#202121 dark:text-#909399"
     rounded-lg
-    mb-2
+    mt-2
     p-4
   >
     <feature-request-tips />
@@ -93,8 +93,7 @@ const components = useComponentList(epVersions)
   <div
     class="bg-#fdf6ec dark:bg-#292218 dark:text-#e6a23c"
     rounded-lg
-    mt-4
-    mb-2
+    my-2
     p-4
     text-gray-600
   >

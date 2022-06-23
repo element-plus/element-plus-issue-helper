@@ -4,7 +4,7 @@ import newGithubIssueUrl from 'new-github-issue-url'
 import { templateBugReport, templateFeatureRequest } from '@/hooks/template'
 import type { Form } from '@/hooks/forms'
 
-const props = defineProps<{
+const { modelValue, form } = defineProps<{
   modelValue: boolean
   form: Form
 }>()
@@ -15,11 +15,11 @@ defineEmits<{
 const { t } = useI18n()
 
 const template = $computed(() => {
-  switch (props.form.type) {
+  switch (form.type) {
     case 'bug-report':
-      return templateBugReport(props.form)
+      return templateBugReport(form)
     case 'feature-request':
-      return templateFeatureRequest(props.form)
+      return templateFeatureRequest(form)
   }
 })
 const content = $computed(() =>
@@ -30,13 +30,24 @@ const content = $computed(() =>
 )
 
 const create = () => {
-  const url = newGithubIssueUrl({
-    user: 'element-plus',
-    repo: 'element-plus',
-    title: template.title,
-    body: template.content,
-    labels: template.labels,
-  })
+  let url: string
+  if (form.type === 'bug-report') {
+    url = newGithubIssueUrl({
+      user: 'element-plus',
+      repo: 'element-plus',
+      title: template.title,
+      body: template.content,
+      labels: template.labels,
+    })
+  } else {
+    const params = new URLSearchParams({
+      category: 'feature-request',
+      title: template.title,
+      body: template.content,
+      labels: template.labels.join(','),
+    })
+    url = `https://github.com/element-plus/element-plus/discussions/new?${params.toString()}`
+  }
   window.open(url)
 }
 </script>

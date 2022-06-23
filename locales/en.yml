@@ -26,6 +26,10 @@ feature:
   newComponentName: New Component name
   enhancedComponentName: Component name that needs to be enhanced
   description: Description
+  poll-tips: |
+    Please fill the poll form belows.
+    Poll question: Do you agree this request?
+    Poll options: Agree, Neither agree nor disagree, Disagree
 screenshot: If you need to insert a screenshot, please paste it here.
 resetForm: Reset From
 preview: Preview

@@ -1,4 +1,4 @@
-import { camelize, capitalize } from '@vue/shared'
+import { camelize, capitalize } from 'vue'
 import type { Component } from 'vue'
 
 export const useTexts = () => {

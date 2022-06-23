@@ -42,6 +42,10 @@ feature:
     i18n: 国际化
     Docs: 文档
     Other: 其他
+  poll-tips: |
+    请按照要求填写下面的投票表单（需要为英语或中英双语）。
+    Poll question: Do you agree this request? / 你同意这个特性吗？
+    Poll options: Agree / 同意 、 Neither agree nor disagree / 中立 、 不同意
 screenshot: 如果你需要插入截图，请在这粘贴。
 resetForm: 清空表单
 preview: 预览

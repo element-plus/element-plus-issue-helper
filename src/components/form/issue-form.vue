@@ -1,10 +1,10 @@
 <script setup lang="ts">
-import type { ElForm } from 'element-plus'
+import type { FormInstance } from 'element-plus'
 
 const { t } = useI18n()
 const { form, rules, reset } = $(useForm())
 
-const formRef = $ref<InstanceType<typeof ElForm> | undefined>(undefined)
+const formRef = $ref<FormInstance | undefined>(undefined)
 let preview = $ref(false)
 
 const handlePreview = async () => {
