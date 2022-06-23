@@ -3,7 +3,7 @@ import { featureTypes } from '@/hooks/forms'
 import type { FormFeatureRequest } from '@/hooks/forms'
 
 const { t } = useI18n()
-const { MarkdownSupported } = useTexts()
+const { MarkdownSupported, FeatureRequestTips } = toRefs(useTexts())
 
 const props = defineProps<{
   form: FormFeatureRequest
@@ -67,10 +67,6 @@ const components = useComponentList(epVersions)
     </el-select>
   </el-form-item>
 
-  <div class="bg-#fdf6ec" rounded-lg mt-4 mb-2 p-4 text-gray-600>
-    <markdown-supported />
-  </div>
-
   <el-form-item
     :label="t('feature.description')"
     prop="featureRequest.description"
@@ -81,5 +77,27 @@ const components = useComponentList(epVersions)
       font-mono
       type="textarea"
       :autosize="{ minRows: 3, maxRows: 10 }"
-  /></el-form-item>
+    />
+  </el-form-item>
+
+  <div
+    text-gray-600
+    class="bg-#f4f4f5 dark:bg-#202121 dark:text-#909399"
+    rounded-lg
+    mb-2
+    p-4
+  >
+    <feature-request-tips />
+  </div>
+
+  <div
+    class="bg-#fdf6ec dark:bg-#292218 dark:text-#e6a23c"
+    rounded-lg
+    mt-4
+    mb-2
+    p-4
+    text-gray-600
+  >
+    <markdown-supported />
+  </div>
 </template>

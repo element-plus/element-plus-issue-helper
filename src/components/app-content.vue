@@ -1,6 +1,6 @@
 <script setup lang="ts">
 const { t } = useI18n()
-const { BeforeYouStart } = useTexts()
+const { BeforeYouStart } = toRefs(useTexts())
 </script>
 
 <template>
@@ -11,7 +11,7 @@ const { BeforeYouStart } = useTexts()
         <p leading-6>
           <BeforeYouStart />
         </p>
-        <a text-base tabindex="-1">{{ t('whyStrict') }} (WIP)</a>
+        <!-- <a text-base tabindex="-1">{{ t('whyStrict') }} (WIP)</a> -->
       </div>
 
       <issue-form />

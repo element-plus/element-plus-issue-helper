@@ -11,7 +11,7 @@ const emit = defineEmits<{
 
 const form = $(useVModel(props, 'form', emit))
 const { t } = useI18n()
-const { ReproductionLink, MarkdownSupported } = useTexts()
+const { ReproductionLink, MarkdownSupported } = toRefs(useTexts())
 
 const userAgent = navigator.userAgent
 const epVersions = useSupportedEpVersion()
