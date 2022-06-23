@@ -5,7 +5,7 @@ export const useTexts = () => {
   const { lang } = $(useLanguage())
   const prefix = $computed(() => `../texts/${lang}/`)
 
-  const texts = $computed<Record<string, Component>>(() =>
+  const texts = reactiveComputed<Record<string, Component>>(() =>
     Object.fromEntries(
       Object.entries(import.meta.globEager('../texts/**'))
         .filter(([key]) => key.startsWith(prefix))
@@ -15,9 +15,5 @@ export const useTexts = () => {
         ])
     )
   )
-  return Object.fromEntries(
-    Object.keys(texts).map((key) => {
-      return [key, computed(() => texts[key])]
-    })
-  )
+  return texts
 }
