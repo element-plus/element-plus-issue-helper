@@ -106,6 +106,9 @@ export const templateFeatureRequest = (form: Form) => {
 
   const title = `${titleTags.map((tag) => `[${tag}]`).join(' ')} ${form.title}`
   const content = `
+<!--
+${t('feature.poll-tips')}
+-->
 Feature type: **\`${form.featureRequest.featureType}\`**
 
 ## Details
@@ -121,10 +124,6 @@ ${form.featureRequest.description}
 ${form.additional || '_(empty)_'}
 
 <!-- ${t('screenshot')} -->
-
-<!--
-${t('feature.poll-tips')}
--->
 
 `.trim()
 
