@@ -7,11 +7,11 @@ export const useTexts = () => {
 
   const texts = reactiveComputed<Record<string, Component>>(() =>
     Object.fromEntries(
-      Object.entries(import.meta.globEager('../texts/**'))
+      Object.entries(import.meta.glob('../texts/**', { eager: true }))
         .filter(([key]) => key.startsWith(prefix))
         .map(([key, value]) => [
           capitalize(camelize(key.replace(prefix, '').replace('.md', ''))),
-          markRaw(value.default),
+          markRaw((value as any).default),
         ])
     )
   )

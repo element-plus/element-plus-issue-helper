@@ -1,10 +1,10 @@
 import { createI18n } from 'vue-i18n'
 
 const messages = Object.fromEntries(
-  Object.entries(import.meta.globEager('../locales/*.y(a)?ml')).map(
+  Object.entries(import.meta.glob('../locales/*.y(a)?ml', { eager: true })).map(
     ([key, value]) => {
       const lang = /locales\/(.*)\.ya?ml/.exec(key)?.[1]
-      return [lang, value.default]
+      return [lang, (value as any).default]
     }
   )
 )

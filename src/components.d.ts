@@ -3,6 +3,8 @@
 // Read more: https://github.com/vuejs/core/pull/3399
 import '@vue/runtime-core'
 
+export {}
+
 declare module '@vue/runtime-core' {
   export interface GlobalComponents {
     AppContent: typeof import('./components/app-content.vue')['default']
@@ -28,5 +30,3 @@ declare module '@vue/runtime-core' {
     IssuePreview: typeof import('./components/form/issue-preview.vue')['default']
   }
 }
-
-export {}
