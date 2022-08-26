@@ -1,24 +1,27 @@
 import { compare } from 'compare-versions'
-import type { Ref } from 'vue'
 import type { MaybeRef } from '@vueuse/core'
 
 export const getVersions = (pkg: string) =>
   useFetch(`https://data.jsdelivr.com/v1/package/npm/${pkg}`, {
     initialData: [],
     afterFetch: (ctx) => ((ctx.data = ctx.data.versions), ctx),
-  }).json<string[]>().data as Ref<string[]>
+  }).json<string[]>().data
 
 export const useSupportedVueVersion = () => {
   const versions = $(getVersions('vue'))
   return computed(() =>
-    versions.filter((version) => compare(version, '3.2.0', '>='))
+    versions
+      ? versions.filter((version) => compare(version, '3.2.0', '>='))
+      : []
   )
 }
 
 export const useSupportedEpVersion = () => {
   const versions = $(getVersions('element-plus'))
   return computed(() =>
-    versions.filter((version) => compare(version, '1.1.0-beta.1', '>='))
+    versions
+      ? versions.filter((version) => compare(version, '1.1.0-beta.1', '>='))
+      : []
   )
 }
 
