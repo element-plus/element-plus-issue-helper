@@ -31,6 +31,6 @@ feature:
     Poll question: Do you agree this request?
     Poll options: Agree, Neither agree nor disagree, Disagree
 screenshot: If you need to insert a screenshot, please paste it here.
-resetForm: Reset From
+resetForm: Reset Form
 preview: Preview
 create: Create
